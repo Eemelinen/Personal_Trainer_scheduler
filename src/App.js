@@ -1,8 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navigator from './components/Navigator';
 import './App.css';
-import CustomerList from './components/CustomerList';
 import Calender from './pages/Calender';
 import Customers from './pages/Customers';
 import Trainings from './pages/Trainings';
