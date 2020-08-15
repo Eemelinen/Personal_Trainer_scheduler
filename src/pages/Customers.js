@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AddCustomer from '../components/addCustomer/addCustomer';
+import AddCustomerToggler from '../components/addCustomer/AddCustomerToggler';
 import CustomerList from '../components/customerList/CustomerList';
 
 function Customers() {
@@ -31,7 +31,7 @@ function Customers() {
   return (
     <div className="customers">
       <h1>Customers</h1>
-      <AddCustomer />
+      <AddCustomerToggler />
       <CustomerList customers={customers} deleteCustomer={deleteCustomer}/>
     </div>
   );

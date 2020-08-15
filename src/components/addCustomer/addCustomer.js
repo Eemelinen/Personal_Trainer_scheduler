@@ -1,11 +1,10 @@
 import React from 'react';
-import { Field, Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
 import FormLabel from 'react-bootstrap/FormLabel'; 
 
-function addCustomer(props) {
-
+function AddCustomer(props) {
   const handleSubmit = () => {
     console.log('submitted')
   }
@@ -52,15 +51,19 @@ function addCustomer(props) {
           if(!values.phone) {
             errors.phone = 'Required'
           }
-
           return errors;
         }}
 
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          // setTimeout(() => {
+          //   alert(JSON.stringify(values, null, 2));
+          //   setSubmitting(false);
+          // }, 400);
+
+          console.log('onSubmit runs');
+
+          
+
         }}>
 
         {({
@@ -146,9 +149,9 @@ function addCustomer(props) {
               {errors.phone}
               <br/>
 
-            <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
-              Add Customer
-            </button>
+              <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
+                Add Customer
+              </button>
             </FormGroup>
           </form>
           
@@ -158,4 +161,4 @@ function addCustomer(props) {
   );
 }
 
-export default addCustomer;
+export default AddCustomer;
