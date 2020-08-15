@@ -4,9 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Navigation() {
   return (
     <div className="navigation">
-
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
@@ -20,9 +18,7 @@ function Navigation() {
             </li>
           </ul>
         </div>
-
-    </nav>
-
+      </nav>
     </div>
   );
 }
