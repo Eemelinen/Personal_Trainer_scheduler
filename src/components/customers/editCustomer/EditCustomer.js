@@ -8,22 +8,22 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 
 const EditCustomer = props => {
-  
+  const { customer } = props;
   const [open, setOpen] = React.useState(false);
-  const [customer, setCustomer] = React.useState({
+  const [details, setDetails] = React.useState({
     firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: ''
   })
 
   const handleClickOpen = () => {
-    console.log(props.customer);
-    setCustomer({
-      firstname: props.customer.firstname,
-      lastname: props.customer.lastname,
-      streetaddress: props.customer.streetaddress,
-      postcode: props.customer.postcode,
-      city: props.customer.city,
-      email: props.customer.email,
-      phone: props.customer.phone
+    console.log(customer);
+    setDetails({
+      firstname: customer.firstname,
+      lastname: customer.lastname,
+      streetaddress: customer.streetaddress,
+      postcode: customer.postcode,
+      city: customer.city,
+      email: customer.email,
+      phone: customer.phone
     })
     setOpen(true);
   };
@@ -33,8 +33,8 @@ const EditCustomer = props => {
   };
 
   const handleInputChange = (e) => {
-    setCustomer({
-      ...customer,
+    setDetails({
+      ...details,
       [e.target.name]: e.target.value,
     })
   }
@@ -42,8 +42,8 @@ const EditCustomer = props => {
   const updateCustomer = () => {
     axios({
       method: 'put',
-      url: props.customer.links[0].href,
-      data: customer
+      url: customer.links[0].href,
+      data: details
     })
     .then(res => {
       handleClose();
@@ -66,7 +66,7 @@ const EditCustomer = props => {
             margin="dense"
             name='firstname'
             label="firstname"
-            value={customer.firstname}
+            value={details.firstname}
             onChange={e => handleInputChange(e)}
             fullWidth
           />
@@ -74,7 +74,7 @@ const EditCustomer = props => {
             margin="dense"
             name='lastname'
             label="lastname"
-            value={customer.lastname}
+            value={details.lastname}
             onChange={e => handleInputChange(e)}
             fullWidth
           />
@@ -82,7 +82,7 @@ const EditCustomer = props => {
             margin="dense"
             name='email'
             label="email"
-            value={customer.email}
+            value={details.email}
             onChange={e => handleInputChange(e)}
             fullWidth
           />
@@ -90,7 +90,7 @@ const EditCustomer = props => {
             margin="dense"
             name='streetaddress'
             label="streetaddress"
-            value={customer.streetaddress}
+            value={details.streetaddress}
             onChange={e => handleInputChange(e)}
             fullWidth
           />
@@ -98,7 +98,7 @@ const EditCustomer = props => {
             margin="dense"
             name='postcode'
             label="postcode"
-            value={customer.postcode}
+            value={details.postcode}
             onChange={e => handleInputChange(e)}
             fullWidth
           />
@@ -106,7 +106,7 @@ const EditCustomer = props => {
             margin="dense"
             name='city'
             label="city"
-            value={customer.city}
+            value={details.city}
             onChange={e => handleInputChange(e)}
             fullWidth
           />
@@ -114,7 +114,7 @@ const EditCustomer = props => {
             margin="dense"
             name='email'
             label="email"
-            value={customer.email}
+            value={details.email}
             onChange={e => handleInputChange(e)}
             fullWidth
           />
@@ -122,7 +122,7 @@ const EditCustomer = props => {
             margin="dense"
             name='phone'
             label="phone"
-            value={customer.phone}
+            value={details.phone}
             onChange={e => handleInputChange(e)}
             fullWidth
           />

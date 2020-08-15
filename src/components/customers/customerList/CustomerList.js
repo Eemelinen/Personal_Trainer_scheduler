@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTable from 'react-table';
-import 'react-table/react-table.css';
 import EditCustomer from '../editCustomer/EditCustomer';
+import 'react-table/react-table.css';
 
 function CustomerList(props) {
   const { customers, deleteCustomer } = props;
