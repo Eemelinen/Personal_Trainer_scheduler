@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactTable from 'react-table';
+import axios from 'axios';
 import 'react-table/react-table.css';
 
 function CustomerList() {
@@ -17,6 +18,16 @@ function CustomerList() {
       .then(data => setCustomers(data.content))
       .catch(err => console.log(err))
   }
+
+    const deleteCustomer = data => {
+      const link = data.row._original.links[0].href;
+      axios.delete(link)
+        .then(response => {
+          getCustomers();
+          console.log(response);
+        })
+        .catch(error => console.log(error));
+  };
 
   const columns = [
     {
@@ -46,14 +57,18 @@ function CustomerList() {
     {
       Header: 'Phone',
       accessor: 'phone',
-    }
+    },
+    {
+      sortable: false,
+      filterable: false,
+      width: 100,
+      Cell: row => <button onClick={() => deleteCustomer(row)}>Delete</button>
+    },
   ];
 
   return (
     <div className="customerList">
-
-      <ReactTable data={customers} columns={columns} filterable={true}/>
-
+      <ReactTable data={customers} columns={columns} filterable={true} />
     </div>
   );
 }
