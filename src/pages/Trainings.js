@@ -38,7 +38,6 @@ function Training() {
         activity: details.activity,
         duration: details.duration,
         customer: details.customer,
-        // customer: 'https://localhost:8080/api/customers/7'
       }
     })
     .then(res => {
