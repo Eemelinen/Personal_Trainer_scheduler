@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import AddCustomer from '../components/addCustomer/addCustomer';
 import CustomerList from '../components/customerList/CustomerList';
 
-
 function Customers() {
-
   const [ customers, setCustomers ] = useState([]);
 
   useEffect(() => {
@@ -32,6 +31,7 @@ function Customers() {
   return (
     <div className="customers">
       <h1>Customers</h1>
+      <AddCustomer />
       <CustomerList customers={customers} deleteCustomer={deleteCustomer}/>
     </div>
   );
