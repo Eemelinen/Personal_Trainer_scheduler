@@ -18,7 +18,10 @@ function Training() {
   const getTrainings = () => {
     fetch('https://customerrest.herokuapp.com/gettrainings')
       .then(res => res.json())
-      .then(data => setTrainings(data))
+      .then(data => {
+        setTrainings(data);
+        console.log(data);
+      })
       .catch(err => console.log(err))
   }
 
@@ -34,7 +37,7 @@ function Training() {
         date: details.date,
         activity: details.activity,
         duration: details.duration,
-        customer: details.url,
+        customer: details.customer,
         // customer: 'https://localhost:8080/api/customers/7'
       }
     })
@@ -46,11 +49,24 @@ function Training() {
     .catch(err => console.log(err))
   }
 
+  const deleteTraining = data => {
+    const id = data.original.id;
+    console.log(id);
+    if(window.confirm('Do you really want to delete this training?')) {
+      axios.delete(`https://customerrest.herokuapp.com/api/trainings/${id}`)
+        .then(response => {
+          getTrainings();
+          console.log(response);
+        })
+        .catch(error => console.log(error));
+    }
+  }
+
   return (
     <div className="training">
       <h1>Trainings</h1>
       <AddTrainingToggler saveTraining={saveTraining}/>
-      <TrainingList trainings={trainings} />
+      <TrainingList trainings={trainings} deleteTraining={deleteTraining} />
     </div>
   );
 }

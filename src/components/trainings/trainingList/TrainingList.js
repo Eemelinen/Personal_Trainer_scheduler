@@ -4,7 +4,7 @@ import 'react-table/react-table.css';
 import moment from 'moment';
 
 function TrainingList(props) {
-  const { trainings } = props;
+  const { trainings, deleteTraining } = props;
 
   const columns = [
     {
@@ -31,6 +31,13 @@ function TrainingList(props) {
       Header: 'Date and time',
       id: 'time',
       accessor: t => moment(t.date).format('LLL')
+    },
+    {
+      sortable: false,
+      filterable: false,
+      width: 100,
+      // accessor: ''
+      Cell: row => <button onClick={() => deleteTraining(row)}>Delete</button>
     },
   ];
 

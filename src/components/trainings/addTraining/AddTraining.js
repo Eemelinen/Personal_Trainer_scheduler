@@ -14,7 +14,7 @@ function AddTraining(props) {
           date: '',
           duration: '',
           activity: '',
-          userID: 'https://localhost:8080/api/customers/7',
+          customer: 'https://customerrest.herokuapp.com/api/customers/10',
         }}
 
         validate={values => {
@@ -28,18 +28,14 @@ function AddTraining(props) {
           if(!values.activity) {
             errors.activity = 'Activity Required'
           }
-          if(!values.userID) {
-            errors.userID = 'UserID Required'
+          if(!values.customer) {
+            errors.customer = 'customer Required'
           }
           return errors;
         }}
 
         onSubmit={ async (values, { setSubmitting, resetForm }) => {
           console.log('Add training onSubmit runs');
-
-          // const getTrainingById = () => {
-            
-          // };
 
           saveTraining(values);
           setOpened(false);
@@ -88,15 +84,15 @@ function AddTraining(props) {
               />
               {errors.activity}
               <br/>
-              <FormLabel>userID:</FormLabel>
+              <FormLabel>customer:</FormLabel>
               <FormControl
                 type="text"
-                name="userID"
+                name="customer"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.userID}
+                value={values.customer}
               />
-              {errors.userID}
+              {errors.customer}
               < br />
 
               <button className="btn btn-primary" type="submit" disabled={isSubmitting}>

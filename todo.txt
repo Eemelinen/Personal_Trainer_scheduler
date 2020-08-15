@@ -11,3 +11,6 @@
  --> There should always be user matching the exercise.
 
  // Date and time should be hanled correctly when creating training
+ // dropdown for adding trainings
+
+ 
