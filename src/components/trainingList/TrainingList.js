@@ -16,9 +16,9 @@ function CustomerList() {
   }, [trainings]);
 
   const getTrainings = () => {
-    fetch('https://customerrest.herokuapp.com/api/trainings')
+    fetch('https://customerrest.herokuapp.com/gettrainings')
       .then(res => res.json())
-      .then(data => setTrainings(data.content))
+      .then(data => setTrainings(data))
       .catch(err => console.log(err))
   }
 
@@ -37,7 +37,8 @@ function CustomerList() {
     },
     {
       Header: 'Customer',
-      accessor: 'customer',
+      id: 'firstname_lastname',
+      accessor: c => `${c.customer.firstname} ${c.customer.lastname}`,
     }
   ];
 
