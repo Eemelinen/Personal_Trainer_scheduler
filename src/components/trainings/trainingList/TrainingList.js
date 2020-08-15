@@ -18,7 +18,14 @@ function TrainingList(props) {
     {
       Header: 'Customer name',
       id: 'firstname_lastname',
-      accessor: c => `${c.customer.firstname} ${c.customer.lastname}`,
+      accessor: c => {
+        console.log('ACCESSOR ', c)
+        if( c.customer !== null) {
+          return `${c.customer.firstname} ${c.customer.lastname}`
+        } else {
+          return 'Lisa Ahlstrom'
+        }
+      }
     },
     {
       Header: 'Date and time',

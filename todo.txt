@@ -5,3 +5,9 @@
 // Feedback for button clicks
 
 // add customer form tells that fields are required before user tried to submit
+
+// App crashes if there is no user with the given id when creating training
+ --> best way to do this would be to connect create training to name of the user
+ --> There should always be user matching the exercise.
+
+ // Date and time should be hanled correctly when creating training

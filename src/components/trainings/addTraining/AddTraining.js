@@ -11,48 +11,36 @@ function AddTraining(props) {
       <h1>Add Training</h1>
       <Formik
         initialValues={{
-          firstname: '',
-          lastname: '',
-          streetaddress: '',
-          postcode: '',
-          city: '',
-          email: '',
-          phone: '',
+          date: '',
+          duration: '',
+          activity: '',
+          userID: 'https://localhost:8080/api/customers/7',
         }}
 
         validate={values => {
           const errors = {};
-
-          if(!values.firstname) {
-            errors.firstname = 'first name Required'
+          if(!values.date) {
+            errors.date = 'first name Required'
           }
-          if(!values.lastname) {
-            errors.lastname = 'last name Required'
+          if(!values.duration) {
+            errors.duration = 'last name Required'
           }
-          if(!values.streetaddress) {
-            errors.streetaddress = 'Required'
+          if(!values.activity) {
+            errors.activity = 'Activity Required'
           }
-          if(!values.postcode) {
-            errors.postcode = 'Required'
-          }
-          if(!values.city) {
-            errors.city = 'Required'
-          }
-          if (!values.email) {
-            errors.email = 'Required';
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = 'Invalid email address';
-          }
-          if(!values.phone) {
-            errors.phone = 'Required'
+          if(!values.userID) {
+            errors.userID = 'UserID Required'
           }
           return errors;
         }}
 
-        onSubmit={(values, { setSubmitting, resetForm }) => {
+        onSubmit={ async (values, { setSubmitting, resetForm }) => {
           console.log('Add training onSubmit runs');
+
+          // const getTrainingById = () => {
+            
+          // };
+
           saveTraining(values);
           setOpened(false);
           setSubmitting(false);
@@ -70,77 +58,46 @@ function AddTraining(props) {
         }) => (
           <form onSubmit={handleSubmit}>
             <FormGroup className="form-group col-md-3">
-              <FormLabel>Firstname:</FormLabel>
+              <FormLabel>Date and time:</FormLabel>
               <FormControl
                 type="text"
-                name="firstname"
+                name="date"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.firstname}
+                value={values.date}
               />
-              {errors.firstname}
+              {errors.date}
               <br/>
-              <FormLabel>lastname: </FormLabel>
+              <FormLabel>Duration: </FormLabel>
               <FormControl
                 type="text"
-                name="lastname"
+                name="duration"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.lastname}
+                value={values.duration}
               />
-              {errors.lastname}
+              {errors.duration}
               <br/>
               <FormLabel>Street address:</FormLabel>
               <FormControl
                 type="text"
-                name="streetaddress"
+                name="activity"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.streetaddress}
+                value={values.activity}
               />
-              {errors.streetaddress}
+              {errors.activity}
               <br/>
-              <FormLabel>Postal code:</FormLabel>
+              <FormLabel>userID:</FormLabel>
               <FormControl
                 type="text"
-                name="postcode"
+                name="userID"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.postcode}
+                value={values.userID}
               />
-              {errors.postcode}
-              <br/>
-              <FormLabel>City:</FormLabel>
-              <FormControl
-                type="text"
-                name="city"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.city}
-              />
-              {errors.city}
-              <br/>
-              <FormLabel>Email:</FormLabel>
-              <FormControl
-                type="email"
-                name="email"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-              />
-              {errors.email && touched.email && errors.email}
-
-              <br/>
-              <FormLabel>Phone:</FormLabel>
-              <FormControl
-                type="text"
-                name="phone"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.phone}
-              />
-              {errors.phone}
-              <br/>
+              {errors.userID}
+              < br />
 
               <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
                 Add Training

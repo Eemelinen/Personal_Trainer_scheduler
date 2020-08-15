@@ -26,15 +26,16 @@ function Training() {
     console.log('DETAILS ', details)
     axios({
       method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       url: 'https://customerrest.herokuapp.com/api/trainings',
       data: {
-        firstname: details.firstname,
-        lastname: details.lastname,
-        streetaddress: details.streetaddress,
-        postcode: details.postcode,
-        city: details.city,
-        email: details.email,
-        phone: details.phone,
+        date: details.date,
+        activity: details.activity,
+        duration: details.duration,
+        customer: details.url,
+        // customer: 'https://localhost:8080/api/customers/7'
       }
     })
     .then(res => {
