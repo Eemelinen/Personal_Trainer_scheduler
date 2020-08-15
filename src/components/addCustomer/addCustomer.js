@@ -55,7 +55,8 @@ function AddCustomer(props) {
           console.log('Add customer onSubmit runs');
           addCustomer(values);
           setOpened(false);
-          resetForm({})
+          setSubmitting(false);
+          resetForm();
         }}>
 
         {({

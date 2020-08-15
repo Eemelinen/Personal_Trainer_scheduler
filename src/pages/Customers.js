@@ -43,13 +43,15 @@ function Customers() {
 
     const deleteCustomer = data => {
       const link = data.row._original.links[0].href;
-      axios.delete(link)
-        .then(response => {
-          getCustomers();
-          console.log(response);
-        })
-        .catch(error => console.log(error));
-  };
+      if(window.confirm('Do you really want to delete this user? All the trainings by this user will be deleted as well.')) {
+        axios.delete(link)
+          .then(response => {
+            getCustomers();
+            console.log(response);
+          })
+          .catch(error => console.log(error));
+      }
+    }
 
   return (
     <div className="customers">
