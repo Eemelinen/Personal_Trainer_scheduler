@@ -1,9 +1,9 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Navigator() {
+function Navigation() {
   return (
-    <div className="navigator">
+    <div className="navigation">
 
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         
@@ -27,4 +27,4 @@ function Navigator() {
   );
 }
 
-export default Navigator;
+export default Navigation;

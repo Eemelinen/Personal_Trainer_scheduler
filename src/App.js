@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Navigator from './components/Navigator';
-import './App.css';
+import Navigation from './components/navigation/Navigation';
 import Calender from './pages/Calender';
 import Customers from './pages/Customers';
 import Trainings from './pages/Trainings';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <div>
-          <Navigator />
+          <Navigation />
           <Switch>
             <Route exact path='/trainings' component={Trainings}/>
             <Route path='/calender' component={Calender}/>
