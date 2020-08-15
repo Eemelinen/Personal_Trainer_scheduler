@@ -3,3 +3,5 @@
 // Loading feedback
 
 // Feedback for button clicks
+
+// add customer form tells that fields are required before user tried to submit

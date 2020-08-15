@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import moment from 'moment';
 
-function CustomerList() {
-
-  const [ trainings, setTrainings ] = useState([]);
-
-  useEffect(() => {
-    console.log('Training list loaded');
-    getTrainings();
-  }, []);
-
-  useEffect(() => {
-    console.log(trainings);
-  }, [trainings]);
-
-  const getTrainings = () => {
-    fetch('https://customerrest.herokuapp.com/gettrainings')
-      .then(res => res.json())
-      .then(data => setTrainings(data))
-      .catch(err => console.log(err))
-  }
+function TrainingList(props) {
+  const { trainings } = props;
 
   const columns = [
     {
@@ -51,4 +34,4 @@ function CustomerList() {
   );
 }
 
-export default CustomerList;
+export default TrainingList;
