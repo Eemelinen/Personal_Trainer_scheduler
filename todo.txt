@@ -13,4 +13,7 @@
  // Date and time should be hanled correctly when creating training
  // dropdown for adding trainings
 
- 
+ // Feedback when customer has been edited.
+
+ // Page refreshes when a customer has been edited. Edit should be at same level as other api handlers.
+ --> This could be fixed by putting state handling to CONTEXT

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AddCustomerToggler from '../components/addCustomer/AddCustomerToggler';
-import CustomerList from '../components/customerList/CustomerList';
+import AddCustomerToggler from '../components/customers/addCustomer/AddCustomerToggler';
+import CustomerList from '../components/customers/customerList/CustomerList';
 
 function Customers() {
   const [ customers, setCustomers ] = useState([]);
@@ -41,17 +41,17 @@ function Customers() {
     .catch(err => console.log(err))
   }
 
-    const deleteCustomer = data => {
-      const link = data.row._original.links[0].href;
-      if(window.confirm('Do you really want to delete this user? All the trainings by this user will be deleted as well.')) {
-        axios.delete(link)
-          .then(response => {
-            getCustomers();
-            console.log(response);
-          })
-          .catch(error => console.log(error));
-      }
+  const deleteCustomer = data => {
+    const link = data.row._original.links[0].href;
+    if(window.confirm('Do you really want to delete this user? All the trainings by this user will be deleted as well.')) {
+      axios.delete(link)
+        .then(response => {
+          getCustomers();
+          console.log(response);
+        })
+        .catch(error => console.log(error));
     }
+  }
 
   return (
     <div className="customers">

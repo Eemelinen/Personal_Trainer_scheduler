@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+import EditCustomer from '../editCustomer/EditCustomer';
 
 function CustomerList(props) {
   const { customers, deleteCustomer } = props;
@@ -33,6 +34,12 @@ function CustomerList(props) {
     {
       Header: 'Phone',
       accessor: 'phone',
+    },
+    {
+      sortable: false,
+      filterable: false,
+      width: 100,
+      Cell: row => < EditCustomer customer={row.original} />
     },
     {
       sortable: false,
