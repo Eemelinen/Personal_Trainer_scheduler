@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import moment from 'moment';
 
-function CustomerList() {
-
-  const [ trainings, setTrainings ] = useState([]);
-
-  useEffect(() => {
-    console.log('Training list loaded');
-    getTrainings();
-  }, []);
-
-  useEffect(() => {
-    console.log(trainings);
-  }, [trainings]);
-
-  const getTrainings = () => {
-    fetch('https://customerrest.herokuapp.com/gettrainings')
-      .then(res => res.json())
-      .then(data => setTrainings(data))
-      .catch(err => console.log(err))
-  }
+function TrainingList(props) {
+  const { trainings, deleteTraining } = props;
 
   const columns = [
     {
@@ -35,12 +18,26 @@ function CustomerList() {
     {
       Header: 'Customer name',
       id: 'firstname_lastname',
-      accessor: c => `${c.customer.firstname} ${c.customer.lastname}`,
+      accessor: c => {
+        console.log('ACCESSOR ', c)
+        if( c.customer !== null) {
+          return `${c.customer.firstname} ${c.customer.lastname}`
+        } else {
+          return 'Lisa Ahlstrom'
+        }
+      }
     },
     {
       Header: 'Date and time',
       id: 'time',
       accessor: t => moment(t.date).format('LLL')
+    },
+    {
+      sortable: false,
+      filterable: false,
+      width: 100,
+      // accessor: ''
+      Cell: row => <button onClick={() => deleteTraining(row)}>Delete</button>
     },
   ];
 
@@ -51,4 +48,4 @@ function CustomerList() {
   );
 }
 
-export default CustomerList;
+export default TrainingList;

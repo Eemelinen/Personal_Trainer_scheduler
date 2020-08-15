@@ -1,3 +1,19 @@
 // moment to change time on training schedule.
 // Highlight active tab in navbar
 // Loading feedback
+
+// Feedback for button clicks
+
+// add customer form tells that fields are required before user tried to submit
+
+// App crashes if there is no user with the given id when creating training
+ --> best way to do this would be to connect create training to name of the user
+ --> There should always be user matching the exercise.
+
+ // Date and time should be hanled correctly when creating training
+ // dropdown for adding trainings
+
+ // Feedback when customer has been edited.
+
+ // Page refreshes when a customer has been edited. Edit should be at same level as other api handlers.
+ --> This could be fixed by putting state handling to CONTEXT
