@@ -18,6 +18,29 @@ function Customers() {
       .catch(err => console.log(err))
   }
 
+  const addCustomer = details => {
+    console.log('DETAILS ', details)
+    axios({
+      method: 'post',
+      url: 'https://customerrest.herokuapp.com/api/customers',
+      data: {
+        firstname: details.firstname,
+        lastname: details.lastname,
+        streetaddress: details.streetaddress,
+        postcode: details.postcode,
+        city: details.city,
+        email: details.email,
+        phone: details.phone,
+      }
+    })
+    .then(res => {
+      getCustomers();
+      return res;
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+
     const deleteCustomer = data => {
       const link = data.row._original.links[0].href;
       axios.delete(link)
@@ -31,7 +54,7 @@ function Customers() {
   return (
     <div className="customers">
       <h1>Customers</h1>
-      <AddCustomerToggler />
+      <AddCustomerToggler addCustomer={addCustomer}/>
       <CustomerList customers={customers} deleteCustomer={deleteCustomer}/>
     </div>
   );

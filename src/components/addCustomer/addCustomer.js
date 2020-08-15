@@ -2,13 +2,10 @@ import React from 'react';
 import { Formik } from 'formik';
 import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
-import FormLabel from 'react-bootstrap/FormLabel'; 
+import FormLabel from 'react-bootstrap/FormLabel';
 
 function AddCustomer(props) {
-  const handleSubmit = () => {
-    console.log('submitted')
-  }
-
+  const { addCustomer, setOpened } = props;
   return (
     <div>
       <h1>Add Customer</h1>
@@ -16,8 +13,8 @@ function AddCustomer(props) {
         initialValues={{
           firstname: '',
           lastname: '',
-          street: '',
-          postal: '',
+          streetaddress: '',
+          postcode: '',
           city: '',
           email: '',
           phone: '',
@@ -32,11 +29,11 @@ function AddCustomer(props) {
           if(!values.lastname) {
             errors.lastname = 'last name Required'
           }
-          if(!values.street) {
-            errors.street = 'Required'
+          if(!values.streetaddress) {
+            errors.streetaddress = 'Required'
           }
-          if(!values.postal) {
-            errors.postal = 'Required'
+          if(!values.postcode) {
+            errors.postcode = 'Required'
           }
           if(!values.city) {
             errors.city = 'Required'
@@ -54,16 +51,11 @@ function AddCustomer(props) {
           return errors;
         }}
 
-        onSubmit={(values, { setSubmitting }) => {
-          // setTimeout(() => {
-          //   alert(JSON.stringify(values, null, 2));
-          //   setSubmitting(false);
-          // }, 400);
-
-          console.log('onSubmit runs');
-
-          
-
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          console.log('Add customer onSubmit runs');
+          addCustomer(values);
+          setOpened(false);
+          resetForm({})
         }}>
 
         {({
@@ -97,25 +89,25 @@ function AddCustomer(props) {
               />
               {errors.lastname}
               <br/>
-              <FormLabel>Street:</FormLabel>
+              <FormLabel>Street address:</FormLabel>
               <FormControl
                 type="text"
-                name="street"
+                name="streetaddress"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.street}
+                value={values.streetaddress}
               />
-              {errors.street}
+              {errors.streetaddress}
               <br/>
-              <FormLabel>Postal:</FormLabel>
+              <FormLabel>Postal code:</FormLabel>
               <FormControl
                 type="text"
-                name="postal"
+                name="postcode"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.postal}
+                value={values.postcode}
               />
-              {errors.postal}
+              {errors.postcode}
               <br/>
               <FormLabel>City:</FormLabel>
               <FormControl
@@ -154,7 +146,6 @@ function AddCustomer(props) {
               </button>
             </FormGroup>
           </form>
-          
         )}
       </Formik>
     </div>

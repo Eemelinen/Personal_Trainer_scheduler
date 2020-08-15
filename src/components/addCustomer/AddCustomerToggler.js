@@ -19,7 +19,7 @@ function AddCustomerToggler(props) {
           Add Customer
         </button>
         <Collapse isOpened={isOpened}>
-          <AddCustomer />
+          <AddCustomer addCustomer={props.addCustomer} setOpened={setOpened} />
         </Collapse>
       </div>
     );
