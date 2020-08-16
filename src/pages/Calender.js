@@ -1,11 +1,13 @@
 import React from 'react';
+import TrainingCalender from '../components/calender/TrainingCalender';
 
-function Calender() {
-  return (
-    <div className="calender">
-      <h1>Calender</h1>
+const Calendar = props => (
+  <div>
+    <h1>Training Calender</h1>
+    <div>
+      <TrainingCalender />
     </div>
-  );
-}
+  </div>
+)
 
-export default Calender;
+export default Calendar;
