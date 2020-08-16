@@ -35,8 +35,6 @@ function AddTraining(props) {
         }}
 
         onSubmit={ async (values, { setSubmitting, resetForm }) => {
-          console.log('Add training onSubmit runs');
-
           saveTraining(values);
           setOpened(false);
           setSubmitting(false);
