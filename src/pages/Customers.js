@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AddCustomerToggler from '../components/addCustomer/AddCustomerToggler';
-import CustomerList from '../components/customerList/CustomerList';
+import AddCustomerToggler from '../components/customers/addCustomer/AddCustomerToggler';
+import CustomerList from '../components/customers/customerList/CustomerList';
 
 function Customers() {
   const [ customers, setCustomers ] = useState([]);
