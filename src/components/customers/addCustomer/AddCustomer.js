@@ -24,16 +24,16 @@ function AddCustomer(props) {
           const errors = {};
 
           if(!values.firstname) {
-            errors.firstname = 'firstname Required'
+            errors.firstname = 'Firstname required'
           }
           if(!values.lastname) {
-            errors.lastname = 'lastname Required'
+            errors.lastname = 'Lastname required'
           }
           if(!values.streetaddress) {
             errors.streetaddress = 'Address required'
           }
           if(!values.postcode) {
-            errors.postcode = ' Postal code Required'
+            errors.postcode = ' Postal code required'
           }
           if(!values.city) {
             errors.city = 'City required'
@@ -80,7 +80,7 @@ function AddCustomer(props) {
               />
               {errors.firstname}
               <br/>
-              <FormLabel>lastname: </FormLabel>
+              <FormLabel>Lastname: </FormLabel>
               <FormControl
                 type="text"
                 name="lastname"
