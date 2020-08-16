@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import { Formik } from 'formik';
 import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
@@ -95,9 +96,9 @@ function AddTraining(props) {
               {errors.customer}
               < br />
 
-              <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
+              <Button className="btn btn-primary" type="submit" disabled={isSubmitting}>
                 Add Training
-              </button>
+              </Button>
             </FormGroup>
           </form>
         )}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,8 +9,8 @@ import axios from 'axios';
 
 const EditCustomer = props => {
   const { customer, getCustomers } = props;
-  const [open, setOpen] = React.useState(false);
-  const [details, setDetails] = React.useState({
+  const [open, setOpen] = useState(false);
+  const [details, setDetails] = useState({
     firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: ''
   })
 
