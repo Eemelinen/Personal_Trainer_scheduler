@@ -39,7 +39,7 @@ function CustomerList(props) {
       sortable: false,
       filterable: false,
       width: 100,
-      Cell: row => < EditCustomer customer={row.original} />
+      Cell: row => < EditCustomer customer={row.original} getCustomers={props.getCustomers} />
     },
     {
       sortable: false,

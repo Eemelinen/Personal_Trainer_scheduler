@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 
 const EditCustomer = props => {
-  const { customer } = props;
+  const { customer, getCustomers } = props;
   const [open, setOpen] = React.useState(false);
   const [details, setDetails] = React.useState({
     firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: ''
@@ -49,7 +49,7 @@ const EditCustomer = props => {
       handleClose();
       return res;
     })
-    .then(res => console.log(res))
+    .then(() => getCustomers())
     .catch(err => console.log(err))
   }
 
