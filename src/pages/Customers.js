@@ -7,7 +7,6 @@ function Customers() {
   const [ customers, setCustomers ] = useState([]);
 
   useEffect(() => {
-    console.log('CustomerList loaded');
     getCustomers();
   }, []);
 
@@ -19,7 +18,6 @@ function Customers() {
   }
 
   const addCustomer = details => {
-    console.log('DETAILS ', details)
     axios({
       method: 'post',
       url: 'https://customerrest.herokuapp.com/api/customers',
@@ -37,7 +35,6 @@ function Customers() {
       getCustomers();
       return res;
     })
-    .then(res => console.log(res))
     .catch(err => console.log(err))
   }
 
@@ -47,7 +44,6 @@ function Customers() {
       axios.delete(link)
         .then(response => {
           getCustomers();
-          console.log(response);
         })
         .catch(error => console.log(error));
     }

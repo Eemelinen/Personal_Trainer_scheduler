@@ -20,7 +20,6 @@ function TrainingList(props) {
       Header: 'Customer name',
       id: 'firstname_lastname',
       accessor: c => {
-        console.log('ACCESSOR ', c)
         if( c.customer !== null) {
           return `${c.customer.firstname} ${c.customer.lastname}`
         } else {
@@ -37,7 +36,6 @@ function TrainingList(props) {
       sortable: false,
       filterable: false,
       width: 100,
-      // accessor: ''
       Cell: row => <Button onClick={() => deleteTraining(row)}>Delete</Button>
     },
   ];

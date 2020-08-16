@@ -15,7 +15,6 @@ const EditCustomer = props => {
   })
 
   const handleClickOpen = () => {
-    console.log(customer);
     setDetails({
       firstname: customer.firstname,
       lastname: customer.lastname,

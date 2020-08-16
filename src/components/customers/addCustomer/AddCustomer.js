@@ -52,7 +52,6 @@ function AddCustomer(props) {
         }}
 
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          console.log('Add customer onSubmit runs');
           addCustomer(values);
           setOpened(false);
           setSubmitting(false);
