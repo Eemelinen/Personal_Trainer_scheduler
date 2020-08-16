@@ -9,7 +9,6 @@ function AddTraining(props) {
   const { saveTraining, setOpened } = props;
   return (
     <div>
-      <h1>Add Training</h1>
       <Formik
         initialValues={{
           date: '2020-08-23T17:29:51+02:00',
@@ -54,7 +53,7 @@ function AddTraining(props) {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <FormGroup className="form-group col-md-3">
+            <FormGroup className="form-group col-md-3 addForm-margin">
               <FormLabel>Date and time:</FormLabel>
               <FormControl
                 type="text"
@@ -97,7 +96,7 @@ function AddTraining(props) {
               < br />
 
               <Button className="btn btn-primary" type="submit" disabled={isSubmitting}>
-                Add Training
+                Save New Training
               </Button>
             </FormGroup>
           </form>

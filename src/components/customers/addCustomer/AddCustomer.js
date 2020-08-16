@@ -9,7 +9,6 @@ function AddCustomer(props) {
   const { addCustomer, setOpened } = props;
   return (
     <div>
-      <h1>Add Customer</h1>
       <Formik
         initialValues={{
           firstname: '',
@@ -70,7 +69,7 @@ function AddCustomer(props) {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <FormGroup className="form-group col-md-3">
+            <FormGroup className="form-group col-md-3 addForm-margin">
               <FormLabel>Firstname:</FormLabel>
               <FormControl
                 type="text"
@@ -144,7 +143,7 @@ function AddCustomer(props) {
               <br/>
 
               <Button className="btn btn-primary" type="submit" disabled={isSubmitting}>
-                Save Customer
+                Save New Customer
               </Button>
             </FormGroup>
           </form>

@@ -4,9 +4,15 @@
 
 .pageHeader {
   color: rgb(80, 77, 77);
-  /* margin-bottom: 10px; */
+  margin-bottom: 10px;
+  margin-left: 5px;
+  font-family: Courier, monospace;
 }
 
 .tableList {
+  margin-top: 12px;
+}
+
+.addForm-margin {
   margin-top: 10px;
 }
