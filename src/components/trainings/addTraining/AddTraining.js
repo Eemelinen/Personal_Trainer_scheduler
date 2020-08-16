@@ -11,7 +11,7 @@ function AddTraining(props) {
       <h1>Add Training</h1>
       <Formik
         initialValues={{
-          date: '',
+          date: '2020-08-23T17:29:51+02:00',
           duration: '',
           activity: '',
           customer: 'https://customerrest.herokuapp.com/api/customers/10',

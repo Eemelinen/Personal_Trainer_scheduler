@@ -12,6 +12,9 @@
 
  // Date and time should be hanled correctly when creating training
  // dropdown for adding trainings
+ // Alert error if no workout added instead of console.log
+
+ 
 
  // Feedback when customer has been edited.
 
