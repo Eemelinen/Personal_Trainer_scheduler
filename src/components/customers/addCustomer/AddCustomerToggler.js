@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 import { Collapse } from 'react-collapse';
 import AddCustomer from './AddCustomer';
 
@@ -7,8 +8,8 @@ function AddCustomerToggler(props) {
 
     return (
       <div>
-        <button
-          className="input"
+        <Button
+          className="addButton"
           onClick={() => {
             if(isOpened) {
               setOpened(false)
@@ -17,7 +18,7 @@ function AddCustomerToggler(props) {
             }
           }}>
           Add Customer
-        </button>
+        </Button>
         <Collapse isOpened={isOpened}>
           <AddCustomer addCustomer={props.addCustomer} setOpened={setOpened} />
         </Collapse>

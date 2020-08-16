@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import { Formik } from 'formik';
 import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
@@ -8,7 +9,6 @@ function AddCustomer(props) {
   const { addCustomer, setOpened } = props;
   return (
     <div>
-      <h1>Add Customer</h1>
       <Formik
         initialValues={{
           firstname: '',
@@ -24,29 +24,29 @@ function AddCustomer(props) {
           const errors = {};
 
           if(!values.firstname) {
-            errors.firstname = 'first name Required'
+            errors.firstname = 'firstname Required'
           }
           if(!values.lastname) {
-            errors.lastname = 'last name Required'
+            errors.lastname = 'lastname Required'
           }
           if(!values.streetaddress) {
-            errors.streetaddress = 'Required'
+            errors.streetaddress = 'Address required'
           }
           if(!values.postcode) {
-            errors.postcode = 'Required'
+            errors.postcode = ' Postal code Required'
           }
           if(!values.city) {
-            errors.city = 'Required'
+            errors.city = 'City required'
           }
           if (!values.email) {
-            errors.email = 'Required';
+            errors.email = 'Email required';
           } else if (
             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
           ) {
             errors.email = 'Invalid email address';
           }
           if(!values.phone) {
-            errors.phone = 'Required'
+            errors.phone = 'Phone number required'
           }
           return errors;
         }}
@@ -69,7 +69,7 @@ function AddCustomer(props) {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <FormGroup className="form-group col-md-3">
+            <FormGroup className="form-group col-md-3 addForm-margin">
               <FormLabel>Firstname:</FormLabel>
               <FormControl
                 type="text"
@@ -142,9 +142,9 @@ function AddCustomer(props) {
               {errors.phone}
               <br/>
 
-              <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
-                Add Customer
-              </button>
+              <Button className="btn btn-primary" type="submit" disabled={isSubmitting}>
+                Save New Customer
+              </Button>
             </FormGroup>
           </form>
         )}

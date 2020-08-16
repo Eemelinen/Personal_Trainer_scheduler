@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactTable from 'react-table';
+import Button from '@material-ui/core/Button';
 import 'react-table/react-table.css';
 import moment from 'moment';
 
@@ -37,12 +38,12 @@ function TrainingList(props) {
       filterable: false,
       width: 100,
       // accessor: ''
-      Cell: row => <button onClick={() => deleteTraining(row)}>Delete</button>
+      Cell: row => <Button onClick={() => deleteTraining(row)}>Delete</Button>
     },
   ];
 
   return (
-    <div className="customerList">
+    <div className="tableList">
       <ReactTable data={trainings} columns={columns} filterable={true}/>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactTable from 'react-table';
 import EditCustomer from '../editCustomer/EditCustomer';
+import Button from '@material-ui/core/Button';
 import 'react-table/react-table.css';
 
 function CustomerList(props) {
@@ -39,18 +40,18 @@ function CustomerList(props) {
       sortable: false,
       filterable: false,
       width: 100,
-      Cell: row => < EditCustomer customer={row.original} />
+      Cell: row => < EditCustomer customer={row.original} getCustomers={props.getCustomers} />
     },
     {
       sortable: false,
       filterable: false,
       width: 100,
-      Cell: row => <button onClick={() => deleteCustomer(row)}>Delete</button>
+      Cell: row => <Button onClick={() => deleteCustomer(row)}>Delete</Button>
     },
   ];
 
   return (
-    <div className="customerList">
+    <div className="tableList">
       <ReactTable data={customers} columns={columns} filterable={true} />
     </div>
   );

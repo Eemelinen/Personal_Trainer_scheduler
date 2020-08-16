@@ -55,9 +55,9 @@ function Customers() {
 
   return (
     <div className="customers">
-      <h1>Customers</h1>
-      <AddCustomerToggler addCustomer={addCustomer}/>
-      <CustomerList customers={customers} deleteCustomer={deleteCustomer}/>
+      <h1 className='pageHeader'>Customers</h1>
+      <AddCustomerToggler addCustomer={addCustomer} />
+      <CustomerList customers={customers} deleteCustomer={deleteCustomer} getCustomers={getCustomers} />
     </div>
   );
 }

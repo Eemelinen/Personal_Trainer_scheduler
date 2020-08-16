@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import { Formik } from 'formik';
 import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
@@ -8,7 +9,6 @@ function AddTraining(props) {
   const { saveTraining, setOpened } = props;
   return (
     <div>
-      <h1>Add Training</h1>
       <Formik
         initialValues={{
           date: '2020-08-23T17:29:51+02:00',
@@ -53,7 +53,7 @@ function AddTraining(props) {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <FormGroup className="form-group col-md-3">
+            <FormGroup className="form-group col-md-3 addForm-margin">
               <FormLabel>Date and time:</FormLabel>
               <FormControl
                 type="text"
@@ -95,9 +95,9 @@ function AddTraining(props) {
               {errors.customer}
               < br />
 
-              <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
-                Add Training
-              </button>
+              <Button className="btn btn-primary" type="submit" disabled={isSubmitting}>
+                Save New Training
+              </Button>
             </FormGroup>
           </form>
         )}

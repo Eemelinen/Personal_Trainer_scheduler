@@ -63,7 +63,7 @@ function Training() {
 
   return (
     <div className="training">
-      <h1>Upcoming Trainings</h1>
+      <h1 className='pageHeader'>Upcoming Trainings</h1>
       <AddTrainingToggler saveTraining={saveTraining}/>
       <TrainingList trainings={trainings} deleteTraining={deleteTraining} />
     </div>

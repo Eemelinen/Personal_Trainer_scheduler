@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 import { Collapse } from 'react-collapse';
 import AddTraining from './AddTraining';
 
@@ -8,8 +9,8 @@ function AddTrainingToggler(props) {
 
     return (
       <div>
-        <button
-          className="input"
+        <Button
+          className="addButton"
           onClick={() => {
             if(isOpened) {
               setOpened(false)
@@ -18,7 +19,7 @@ function AddTrainingToggler(props) {
             }
           }}>
           Add Training
-        </button>
+        </Button>
         <Collapse isOpened={isOpened}>
           <AddTraining saveTraining={saveTraining} setOpened={setOpened} />
         </Collapse>

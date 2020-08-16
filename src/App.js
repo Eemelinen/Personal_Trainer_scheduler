@@ -8,19 +8,17 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <div>
-          <Navigation />
-          <Switch>
-            <Route exact path='/trainings' component={Trainings}/>
-            <Route path='/calender' component={Calender}/>
-            <Route exact path='/' component={Customers}/>
-            <Route render={() => <h1>Sorry! Page not found.</h1>}/>
-          </Switch>
-        </div>
-      </BrowserRouter>    
-    </div>
+    <BrowserRouter>
+      <Navigation />
+      <div className="App">
+        <Switch>
+          <Route exact path='/trainings' component={Trainings}/>
+          <Route path='/calender' component={Calender}/>
+          <Route exact path='/' component={Customers}/>
+          <Route render={() => <h1>Sorry! Page not found.</h1>}/>
+        </Switch>
+      </div>
+    </BrowserRouter>    
   );
 }
 
