@@ -9,7 +9,7 @@ function AddCustomerToggler(props) {
     return (
       <div>
         <Button
-          className="input"
+          className="addButton"
           onClick={() => {
             if(isOpened) {
               setOpened(false)

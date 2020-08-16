@@ -18,7 +18,7 @@ const Calendar = () => {
 
   return (
     <div>
-      <h1>Training Calender</h1>
+      <h1 className='pageHeader'>Training Calender</h1>
       <div>
         <TrainingCalender events={trainings} />
       </div>

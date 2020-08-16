@@ -43,7 +43,7 @@ function TrainingList(props) {
   ];
 
   return (
-    <div className="customerList">
+    <div className="tableList">
       <ReactTable data={trainings} columns={columns} filterable={true}/>
     </div>
   );

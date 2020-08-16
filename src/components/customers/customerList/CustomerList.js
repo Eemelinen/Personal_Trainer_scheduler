@@ -51,7 +51,7 @@ function CustomerList(props) {
   ];
 
   return (
-    <div className="customerList">
+    <div className="tableList">
       <ReactTable data={customers} columns={columns} filterable={true} />
     </div>
   );
