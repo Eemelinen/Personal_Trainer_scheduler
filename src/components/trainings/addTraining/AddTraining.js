@@ -20,16 +20,16 @@ function AddTraining(props) {
         validate={values => {
           const errors = {};
           if(!values.date) {
-            errors.date = 'first name Required'
+            errors.date = 'Date required'
           }
           if(!values.duration) {
-            errors.duration = 'last name Required'
+            errors.duration = 'Workout duration required'
           }
           if(!values.activity) {
-            errors.activity = 'Activity Required'
+            errors.activity = 'Activity required'
           }
           if(!values.customer) {
-            errors.customer = 'customer Required'
+            errors.customer = 'Customer required'
           }
           return errors;
         }}
@@ -74,7 +74,7 @@ function AddTraining(props) {
               />
               {errors.duration}
               <br/>
-              <FormLabel>Street address:</FormLabel>
+              <FormLabel>Activity:</FormLabel>
               <FormControl
                 type="text"
                 name="activity"
@@ -84,7 +84,7 @@ function AddTraining(props) {
               />
               {errors.activity}
               <br/>
-              <FormLabel>customer:</FormLabel>
+              <FormLabel>Customer:</FormLabel>
               <FormControl
                 type="text"
                 name="customer"
